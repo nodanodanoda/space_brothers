@@ -1,0 +1,67 @@
+<div class="midasi">
+	<h3 class="midasitext">商品新規登録</h3>
+</div>
+
+<div class="product_form">
+<%= form_for @travel, url: admins_travels_path do |f| %>
+	<div class="admin_picture">
+		<div class="picture">
+			<%= f.attachment_field :picture %>
+		</div>
+	</div>
+
+	<div class="explain">
+		<div class="travel_name">
+			<div class="admin_label">
+				<%= f.label :旅行名 %>
+			</div>
+			<div class="explain_text">
+				<%= f.text_field :name %>
+			</div>
+		</div>
+		<div class="travel_days">
+			<div class="admin_label">
+				<%= f.label :日数 %>
+			</div>
+			<div class="explain_text">
+				<%= f.text_field :days %>
+			</div>
+		</div>
+		<div class="travel_description">
+			<div class="admin_label">
+				<%= f.label :旅行説明 %>
+			</div>
+			<div class="explain_text">
+				<%= f.text_area :description %>
+			</div>
+		</div>
+		<div class="travel_genre">
+			<div class="admin_label">
+				<%= f.label :ジャンル %>
+			</div>
+			<div class="explain_text">
+				<%= f.collection_select :travel_genre_id, TravelGenre.where(is_valid: true), :id, :genre, :prompt => "ジャンル" %>
+			</div>
+		</div>
+		<div class="travel_price">
+			<div class="admin_label">
+				<%= f.label :値段 %>
+			</div>
+			<div class="explain_text">
+				<%= f.text_field :price %>円
+			</div>
+		</div>
+		<div class="travel_status">
+			<div class="admin_label">
+				<%= f.label :販売ステータス %>
+			</div>
+			<div class="explain_text">
+				<%= f.select :sales_status,options_for_select(Travel.sales_statuses.keys.map {|k| [I18n.t("enums.travel.sales_status.#{k}"), k]}) %>
+			</div>
+		</div>
+		<div class="admin_button">
+  			<%= f.submit '新規登録' %>
+  		</div>
+  	</div>
+<% end %>
+</div>

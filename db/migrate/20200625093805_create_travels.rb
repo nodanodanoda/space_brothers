@@ -7,6 +7,7 @@ class CreateTravels < ActiveRecord::Migration[5.2]
       t.integer :price
       t.text :picture_id
       t.integer :sales_status
+      t.integer :days
 
       t.timestamps
     end

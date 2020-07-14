@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+<%#= render 'layouts/sidebar', genres: @genres %>
+    <div class="col-xs-9">
+     <div class="main-body">
+      <div class="row">
+          <h2><%= @genre.genre %>一覧</h2><p class="count">
+          <% @travels.each do |travel| %>
+          <div class="col-md-3">
+             <div>
+              　<div class="travel-page">
+                <%= link_to customers_travel_path(travel.id) do %>
+                  <%= attachment_image_tag travel, :picture, format:'jpeg', size:"150x150" %><br>
+                  <div class="travel_price1"><%= travel.name %><br></div>
+                  <p class="travel_price2"><%= converting_to_jpy(travel.price) %></p><br>
+                </div>
+                <% end %>
+             </div>
+           </div>
+         <% end %>
+       </div>
+     </div>
+     </div>
+  </div>
+</div>

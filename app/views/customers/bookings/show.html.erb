@@ -1,0 +1,28 @@
+
+<%= attachment_image_tag @booking.travel, :picture, format:'jpeg', size:"250x250" %>
+<table>
+	<tr>
+		<th>旅行名</th>
+		<td><%= @booking.travel.name %></td>
+	</tr>
+	<tr>
+		<th>旅行名</th>
+		<td><%= @booking.travel.description %></td>
+	</tr>
+	<tr>
+		<th>値段</th>
+		<td><%= converting_to_jpy(@booking.travel.price) %></td>
+	</tr>
+	<tr>
+		<th>日数</th>
+		<td><%= @booking.travel.days %>日</td>
+	</tr>
+	<tr>
+		<th>出発・帰還日</th>
+		<td><%= @booking.start_day %> <%= @booking.end_day %></td>
+	</tr>
+	<tr>
+		<th>予約日時</th>
+		<td><%= l @booking.created_at%></td>
+	</tr>
+</table>

@@ -1,0 +1,48 @@
+<h1>旅行詳細</h1>
+<div class="contents">
+			<div class="admin_picture">
+				<%= attachment_image_tag @travel, :picture, size: "200x200" %>
+			</div>
+
+		<div class="explain">
+			<div class="explain_content">
+				<div class="admin_label"><p>旅行名</p></div>
+				<div class="explain_text">
+					<%= @travel.name %>
+				</div>
+			</div>
+			<div class="explain_content">
+				<div class="admin_label"><p>日数</p></div>
+				<div class="explain_text">
+					<%= @travel.days %>日
+				</div>
+			</div>
+			<div class="explain_content">
+				<div class="admin_label"><p>旅行説明</p></div>
+				<div class="explain_text">
+					<%= @travel.description %>
+				</div>
+			</div>
+			<div class="explain_content">
+				<div class="admin_label"><p>ジャンル</p></div>
+				<div class="explain_text">
+					<%= @travel.travel_genre.genre %>
+				</div>
+			</div>
+			<div class="explain_content">
+				<div class="admin_label"><p>値段</p></div>
+				<div class="explain_text">
+					<%= converting_to_jpy(@travel.price) %>
+				</div>
+			</div>
+			<div class="explain_content">
+				<div class="admin_label"><p>旅行ステータス</p></div>
+				<div class="explain_text">
+					<%= @travel.sales_status_i18n %>
+				</div>
+			</div>
+			<div class="btn btn-primary active">
+				<%= link_to "編集する", edit_admins_travel_path(@travel.id) %>
+			</div>
+        </div>
+</div>

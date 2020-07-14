@@ -1,11 +1,12 @@
 class CustomersController < ApplicationController
+	before_action :authenticate_customer!
 
 	def mypage
-		@user = current_customer
+		@customer = current_customer
 	end
 
 	def fix
-		@user = current_customer
+		@customer = current_customer
 	end
 
 	def fix_update

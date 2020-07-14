@@ -1,6 +1,30 @@
 Rails.application.routes.draw do
-  devise_for :admin_users, ActiveAdmin::Devise.config
-  ActiveAdmin.routes(self)
+
+  namespace :admins do
+
+    resources :travels
+
+    resources :travel_genres, only: [:index, :edit, :update, :create]
+
+    resources :bookings
+
+    resources :customers, only: [:index, :show]
+  end
+  namespace :admins do
+    get 'bookings/index'
+    get 'bookings/show'
+    get 'bookings/edit'
+  end
+  namespace :admins do
+    get 'customers/index'
+    get 'customers/show'
+  end
+
+  devise_for :admins, controllers: {
+    sessions:      'admins/sessions',
+    passwords:     'admins/passwords',
+    registrations: 'admins/registrations'
+  }
   devise_for :customers, controllers: {
     sessions:      'customers/sessions',
     passwords:     'customers/passwords',
@@ -9,16 +33,18 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'homes#top'
   get 'about' => 'homes#about'
-  get 'customers/mypage' => 'customers#mypage'
-  get 'customers/withdraw' => 'customers#withdraw'
-  put 'customers/withdraw' => 'customers#withdraw_update'
-  get 'customers/fix' => 'customers#fix'
-  patch 'customers/fix' => 'customers#fix_update'
-  put 'customers/fix' => 'customers#fix_update'
 
   namespace :customers do
-    resources :travels, only: [:index, :show]
-    resources :bookings
+    resources :travels, only: [:index, :show] do
+      resources :bookings, only: [:new, :create]
+    end
+    resources :bookings, only: [:index, :show]
+    resources :travel_genres, only: [:show]
+    get 'mypage'
+    get 'fix'
+    patch 'fix' => 'fix_update'
+    put 'fix' => 'fix_update'
+    get 'thanks' => 'bookings#thanks'
   end
 
 

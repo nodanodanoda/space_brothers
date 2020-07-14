@@ -1,0 +1,35 @@
+<h1>会員詳細</h1>
+
+<table>
+	<tr>
+		<th>氏名</th>
+		<td><%= @customer.name_sei %> <%= @customer.name_mei %></td>
+	</tr>
+	<tr>
+		<th>カナ</th>
+		<td><%= @customer.yomi_sei %> <%= @customer.yomi_mei %></td>
+	</tr>
+	<tr>
+		<th>郵便番号</th>
+		<td><%= @customer.postal_code %></td>
+	</tr>
+	<tr>
+		<th>住所</th>
+		<td><%= @customer.address %></td>
+	</tr>
+	<tr>
+		<th>電話番号</th>
+		<td><%= @customer.tell %></td>
+	</tr>
+	<tr>
+		<th>メールアドレス</th>
+		<td><%= @customer.email %></td>
+	</tr>
+	<tr><th>会員ステータス</th>
+		<% if @customer.status == true %>
+			<td>有効</rd>
+		<% else %>
+			<td>退会済み</td>
+		<% end %>
+	</tr>
+</table>

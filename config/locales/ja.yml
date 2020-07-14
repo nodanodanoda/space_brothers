@@ -1,0 +1,27 @@
+ja:
+  valid: 有効
+  invalid: 無効
+  enums:
+    travel:
+      sales_status:
+        sale: "販売中"
+        soldout: "売切"
+    customer:
+      status:
+        effective: "有効"
+        uneffective: "退会済み"
+    travel_genre:
+      is_valid:
+        effectiveness: "有効"
+        uneffectiveness: "無効"
+  time:
+    formats:
+      default: "%Y/%m/%d %H:%M:%S"
+
+  views:
+    pagination:
+      first: <i class="fas fa-cookie-bite"></i>
+      last: <i class="fas fa-cookie-bite"></i>
+      previous: <i class="fas fa-angle-left"></i>
+      next: <i class="fas fa-angle-right"></i>
+      truncate: "..."

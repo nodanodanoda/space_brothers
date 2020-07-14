@@ -1,1 +1,25 @@
-<div id="calendar"></div>
+<div class="container">
+  <div class="row">
+
+     <%#= render 'layouts/sidebar', genres: @genres %>
+
+    <div class="travel_show">
+        <div class="col-xs-10">
+           <div class="top-body">
+                <%= link_to @travel_path do %>
+                <% end %>
+            <p class="travel-image">
+                   <%= attachment_image_tag @travel, :picture, format:'jpeg', size:"250x250" %>
+            </p>
+                <div class="travel-text">
+                        <p class="travel-title"><%= @travel.name %><br></p>
+                        <p class="travel-days"><%= @travel.days %>日間<br></p>
+                        <p class="travel-description"><%= @travel.description %><br></p>
+                        <p class="travel-price">¥<%= converting_to_jpy(@travel.price) %></p>
+                </div>
+                <%= link_to '予約に進む', new_customers_travel_booking_path(@travel.id) %>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>

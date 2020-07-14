@@ -12,5 +12,21 @@
 //
 //= require rails-ujs
 //= require activestorage
+//= require jquery
+//= require bootstrap-datepicker
+//= require jquery-ui
+//= require moment
 //= require turbolinks
+//= require bootstrap-sprockets
 //= require_tree .
+
+
+$(document).on('turbolinks:load', function() {
+  $( ".booking-start_day" ).change(function() {
+     day = moment($(this).val());
+     day.add(gon.days, 'd')
+     $('.booking-end_day').val(day.format("YYYY-MM-DD"));
+
+    // moment(".booking-end_day").add(:days, 'd').format()
+  });
+});

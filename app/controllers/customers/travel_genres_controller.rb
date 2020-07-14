@@ -1,8 +1,8 @@
 class Customers::TravelGenresController < ApplicationController
 
 	def show
-		@products = Travel.where(product_genre_id: params[:id]).page(params[:page]).per(8)
-		@genres = TravelGenre.where(is_valid: true)
+		@travels = Travel.where(travel_genre_id: params[:id])
+		@genres = TravelGenre.only_active
 		@genre = TravelGenre.find(params[:id])
 	end
 
