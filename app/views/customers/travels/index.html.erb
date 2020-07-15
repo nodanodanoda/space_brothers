@@ -1,14 +1,13 @@
 <div class="container">
-  <div class="row">
-  
-
-    <div class="col-xs-10">
-     <div class="main-body">
-      <div class="row">
-          <h2 class="product_index_title">商品一覧<i class="fas fa-cookie-bite"></i></h2><p class="count"><%= "全#{Travel.all.count}件" %></p>
-          <h3 class="genre-title">ジャンル</h3>
-          <% @genres.each do |genre| %>
-          <div class="genre-name"><a href="<%=  customers_travel_genre_path(genre.id) %>"><%= genre.genre %></a></div>
+  <div class="main">
+    <div class="row">
+      <div class="col-xs-10">
+        <div class="main-body">
+          <div class="row">
+            <h2 class="product_index_title">商品一覧<i class="fas fa-cookie-bite"></i></h2><p class="count"><%= "全#{Travel.all.count}件" %></p>
+            <h3 class="genre-title">ジャンル</h3>
+            <% @genres.each do |genre| %>
+            <div class="genre-name"><a href="<%=  customers_travel_genre_path(genre.id) %>"><%= genre.genre %>一覧へ</a></div>
               <% @travels.each do |travel| %>
                 <% if travel.travel_genre_id == genre.id %>
                   <div class="col-md-3">
@@ -21,10 +20,12 @@
                         <% end %>
                   </div>
                   <% end %>
-             <% end %>
-          <% end %>
-       </div>
-     </div>
-     </div>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
+

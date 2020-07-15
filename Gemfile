@@ -74,6 +74,7 @@ gem 'momentjs-rails', '>= 2.9.0'
 gem 'fullcalendar-rails'
 gem 'bootstrap-datepicker-rails'
 gem 'gon'
+gem 'dotenv-rails'
 
 gem 'pry-byebug'
 

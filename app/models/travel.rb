@@ -1,5 +1,6 @@
 class Travel < ApplicationRecord
 	has_many :bookings
+  has_many :tags
 	belongs_to :travel_genre
 	enum sales_status:{sale:0, soldout:1}
     attachment :picture
