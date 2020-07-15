@@ -188,7 +188,7 @@ font-size:80px;
 color:black;
 }
 .top_page{
-  background-image: url(spaceimage.jpg);
+  background-image: url("<%= asset_path('spaceimage.jpg')%> ");
   width: 100%;
   height: 1000px;
   background-size: cover;
