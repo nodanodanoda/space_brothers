@@ -15,10 +15,10 @@ class Admins::TravelsController < ApplicationController
   def create
   	@travel = Travel.new(travel_params)
   	if @travel.save
-      # tags = Vision.get_image_data(@travel.picture)
-      # tags.each do |tag|
-      #   @travel.tags.create(tag_name: tag)
-      # end
+       tags = Vision.get_image_data(@travel.picture)
+       tags.each do |tag|
+         @travel.tags.create(tag_name: tag)
+       end
   		redirect_to admins_travel_path(@travel.id)
   	else
   		render :new

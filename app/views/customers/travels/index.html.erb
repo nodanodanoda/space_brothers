@@ -14,6 +14,9 @@
                     <div class="travel-page">
                         <%= link_to customers_travel_path(travel.id) do %>
                           <%= attachment_image_tag travel, :picture, format:'jpeg', size:"150x150" %><br>
+                          <% travel.tags.each do |tag| %>
+                            <span class="label label-primary"><%= tag.tag_name %></span>
+                          <% end %>
                           <div class="travel_price1"><%= travel.name %><br></div>
                           <p class="travel_price2"><%= converting_to_jpy(travel.price) %></p><br>
                     </div>

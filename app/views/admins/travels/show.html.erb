@@ -4,7 +4,7 @@
 			<h1>旅行詳細</h1>
 			<div class="contents">
 					<div class="admin_picture">
-						<%= attachment_image_tag @travel, :picture, size: "50x50" %>
+						<%= attachment_image_tag @travel, :picture, size: "200x200" %>
 					</div>
 					<% @travel.tags.each do |tag| %>
 			            <span class="label label-primary"><%= tag.tag_name %></span>
