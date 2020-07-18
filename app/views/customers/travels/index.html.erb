@@ -1,34 +1,27 @@
 <div class="container">
   <div class="main">
     <div class="row">
-      <div class="col-xs-10">
-        <div class="main-body">
-          <div class="row">
-            <h2 class="product_index_title">商品一覧<i class="fas fa-cookie-bite"></i></h2><p class="count"><%= "全#{Travel.all.count}件" %></p>
-            <h3 class="genre-title">ジャンル</h3>
-            <% @genres.each do |genre| %>
-            <div class="genre-name"><a href="<%=  customers_travel_genre_path(genre.id) %>"><%= genre.genre %>一覧へ</a></div>
-              <% @travels.each do |travel| %>
-                <% if travel.travel_genre_id == genre.id %>
-                  <div class="col-md-3">
-                    <div class="travel-page">
-                        <%= link_to customers_travel_path(travel.id) do %>
-                          <%= attachment_image_tag travel, :picture, format:'jpeg', size:"150x150" %><br>
-                          <% travel.tags.each do |tag| %>
-                            <span class="label label-primary"><%= tag.tag_name %></span>
-                          <% end %>
-                          <div class="travel_price1"><%= travel.name %><br></div>
-                          <p class="travel_price2"><%= converting_to_jpy(travel.price) %></p><br>
-                    </div>
-                        <% end %>
-                  </div>
-                  <% end %>
+      <h2 class="index_title">商品一覧<i class="fas fa-cookie-bite"></i></h2><p class="count"><%= "全#{Travel.all.count}件" %></p>
+      <h3 class="genre-title">ジャンル</h3>
+    </div>
+    <% @genres.each do |genre| %>
+    <div class="row genre-name"><a href="<%=  customers_travel_genre_path(genre.id) %>"><%= genre.genre %>一覧へ</a></div>
+      <% @travels.each do |travel| %>
+        <% if travel.travel_genre_id == genre.id %>
+          <div class="col-md-3">
+            <%= link_to customers_travel_path(travel.id) do %>
+              <%= attachment_image_tag travel, :picture, format:'jpeg', size:"150x150" %><br>
+              <% travel.tags.each do |tag| %>
+                <span class="label label-primary"><%= tag.tag_name %></span>
               <% end %>
+                <div class="travel_price1"><%= travel.name %><br></div>
+                <p class="travel_price2"><%= converting_to_jpy(travel.price) %></p><br>
             <% end %>
           </div>
-        </div>
-      </div>
+        <% end %>
+      <% end %>
     </div>
+    <% end %>
   </div>
 </div>
 
