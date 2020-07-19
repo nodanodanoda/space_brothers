@@ -28,27 +28,6 @@ ul{
 list-style:none; 
 }
 
-.product-image{
-float:left;
-}
-
-.product-text{
-padding:30px 15px;
-float:left;
-}
-
-/*会員詳細ページの商品タイトル*/
-.product-title{
-font-size:30px;
-font-family: "cute";
-}
-
-/*会員詳細ページの商品説明*/
-.product-description{
-margin-top:15px;
-font-size:18px;
-}
-
 .main{
 margin-top: 90px;
 }
@@ -67,22 +46,6 @@ padding-top:230px;
 font-family: "Impact";
 font-size:50px;
 }
-
-.osusume{
-font-family: "Impact";
-font-size:50px;
-}
-
-              
-/*商品indexの商品名*/
-.product_price1{
-padding-top:12px;
-}
-
-.product_price2{
-padding-top:10px;
-}
-
 
 .navbar-right{
 font-size:18px;
@@ -118,32 +81,11 @@ color:#4B882C;
 color:#656564;
 }
 
-.total_pprice2{
-font-size:25px;
-}
-
-.fa-address-card{
-color:#0F6CCB;
-}
-
-.fa-coins{
-color:#13985A;
-}
-
-
-.btn1{
-  height: 55px;
-  padding: 20px 40px;
-}
-.placement{
-  margin: 30px;
-  font-size: 15px;
-}
-
 .thanks_message{
 font-size:80px;
 color:black;
 }
+
 .top_page{
   background-image: image-url("spaceimage.jpg");
   width: 100%;
