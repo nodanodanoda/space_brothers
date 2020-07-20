@@ -1,7 +1,7 @@
 class Customers::TravelsController < ApplicationController
 
 	def index
-		@travels = Travel.only_active
+		@travels = Travel.where(travel_genre_id: TravelGenre.only_active)
 		@genres = TravelGenre.only_active
 	end
 

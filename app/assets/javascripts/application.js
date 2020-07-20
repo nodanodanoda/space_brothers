@@ -23,10 +23,13 @@
 
 $(document).on('turbolinks:load', function() {
   $( ".booking-start_day" ).change(function() {
-     day = moment($(this).val());
-     day.add(gon.days, 'd')
-     $('.booking-end_day').val(day.format("YYYY-MM-DD"));
-
-    // moment(".booking-end_day").add(:days, 'd').format()
+    day = moment($(this).val());
+    day.add(gon.days, 'd')
+    $('.booking-end_day').val(day.format("YYYY-MM-DD"));
+  });
+  $('#booking_start_day').datepicker({
+		minDate: 0,
+		dateFormat: 'yy-mm-dd'
   });
 });
+

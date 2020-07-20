@@ -1,26 +1,35 @@
 <div class="container">
   <div class="main">
     <div class="row">
-      <h2 class="index_title">商品一覧<i class="fas fa-cookie-bite"></i></h2><p class="count"><%= "全#{Travel.all.count}件" %></p>
+      <h2 class="index_title">商品一覧<i class="fas fa-cookie-bite"></i></h2>
+      <p class="count"><%= "全#{Travel.all.count}件" %></p>
       <h3 class="genre-title">ジャンル</h3>
     </div>
     <% @genres.each do |genre| %>
-    <div class="row genre-name"><a href="<%=  customers_travel_genre_path(genre.id) %>"><%= genre.genre %>一覧へ</a></div>
-      <% @travels.each do |travel| %>
-        <% if travel.travel_genre_id == genre.id %>
-          <div class="col-md-3">
-            <%= link_to customers_travel_path(travel.id) do %>
-              <%= attachment_image_tag travel, :picture, format:'jpeg', size:"150x150" %><br>
-              <% travel.tags.each do |tag| %>
-                <span class="label label-primary"><%= tag.tag_name %></span>
+      <div class="row genre-name">
+        <div class="col-md-12">
+          <a href="<%=  customers_travel_genre_path(genre.id) %>"><%= genre.genre %>一覧へ</a>
+        </div>
+        <% i = 1 %>
+        <% @travels.each do |travel| %>
+          <% if i == 5 %>
+            <% break %>
+          <% end %>
+          <% if travel.travel_genre_id == genre.id %>
+            <div class="col-md-3">
+              <%= link_to customers_travel_path(travel.id) do %>
+                <%= attachment_image_tag travel, :picture, format:'jpeg', size:"150x150" %>
+                <% travel.tags.each do |tag| %>
+                  <span class="label label-primary"><%= tag.tag_name %></span>
+                <% end %>
+                <p class="travel_price1"><%= travel.name %></p>
+                <p class="travel_price2"><%= converting_to_jpy(travel.price) %></p>
               <% end %>
-                <div class="travel_price1"><%= travel.name %><br></div>
-                <p class="travel_price2"><%= converting_to_jpy(travel.price) %></p><br>
-            <% end %>
-          </div>
+            </div>
+            <% i = i + 1 %>
+          <% end %>
         <% end %>
-      <% end %>
-    </div>
+      </div>
     <% end %>
   </div>
 </div>

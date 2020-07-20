@@ -10,8 +10,5 @@ class Travel < ApplicationRecord
     validates :price, presence: true
     validates :picture, presence: true
     validates :sales_status, presence: true
-
-    scope :only_active, -> {
-      where(travel_genre_id: TravelGenre.only_active)
-     }
+    
 end
