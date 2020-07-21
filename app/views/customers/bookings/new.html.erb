@@ -7,33 +7,31 @@
         <p class="travel-description"><%= @travel.description %><br></p>
         <p class="travel-price">¥<%= converting_to_jpy(@travel.price) %></p>
       </div>
-
       <%= form_for [@travel, @travel.bookings.new], url: customers_travel_bookings_path do |f| %>
-
-      <%= f.hidden_field :travel_id, value: @travel.id %>
-      <div class="container">
-        <div class='col-md-5'>
-          <div class="form-group">
-            <div class='input-group date' id='datetimepicker6'>
+        <%= f.hidden_field :travel_id, value: @travel.id %>
+        <div class="container">
+          <div class='col-md-5'>
+            <div class="form-group">
+              <div class='input-group date' id='datetimepicker6'>
                 <%= f.text_field :start_day, :class => 'form-control booking-start_day', :placeholder => "出発日" %>
                 <span class="input-group-addon">
-                    <span class="glyphicon glyphicon-calendar"></span>
-                </span>
-            </div>
-          </div>
-        </div>
-        <div class='col-md-5'>
-          <div class="form-group">
-            <div class='input-group date' id='datetimepicker7'>
-              <%= f.text_field :end_day, :class => 'form-control booking-end_day', :placeholder => "帰還日", :readonly => true %>
-              <span class="input-group-addon">
                   <span class="glyphicon glyphicon-calendar"></span>
-              </span>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class='col-md-5'>
+            <div class="form-group">
+              <div class='input-group date' id='datetimepicker7'>
+                <%= f.text_field :end_day, :class => 'form-control booking-end_day', :placeholder => "帰還日", :readonly => true %>
+                <span class="input-group-addon">
+                  <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-         <%= f.submit "この日程で予約する", class: "btn btn-danger btn-wide" %>
+        <%= f.submit "この日程で予約する", class: "btn btn-danger btn-wide" %>
       <% end %>
     </div>
   </div>
