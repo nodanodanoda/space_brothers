@@ -1,24 +1,19 @@
 <div class="container">
-  <div class="main">
-    <div class="row">
-      <div class="travel_show">
-        <%= link_to @travel_path do %>
-        <% end %>
-        <%= attachment_image_tag @travel, :picture, format:'jpeg', size:"250x250" %><br>
-        <% @travel.tags.each do |tag| %>
-          <span class="label label-primary"><%= tag.tag_name %></span>
-        <% end %>
-        <% @travel.tags.each do |tag| %>
-          <span class="label label-primary"><%= tag.tag_name %></span>
-        <% end %>
-        <table class="table">
-          <tr><td><%= @travel.name %></td></tr>
-          <tr><td><%= @travel.days %>日間</td></tr>
-          <tr><td><%= @travel.description %></td></tr>
-          <tr><td>¥<%= converting_to_jpy(@travel.price) %></td></tr>
-        </table>
-        <%= link_to '予約に進む', new_customers_travel_booking_path(@travel.id) %>
-      </div>
+  <div class="row">
+    <div class="travel_show">
+      <%= link_to @travel_path do %>
+      <% end %>
+      <%= attachment_image_tag @travel, :picture, format:'jpeg', size:"250x250" %>
+      <% @travel.tags.each do |tag| %>
+        <span class="label label-primary"><%= tag.tag_name %></span>
+      <% end %>
+      <table class="table">
+        <tr><td><%= @travel.name %></td></tr>
+        <tr><td><%= @travel.days %>日間</td></tr>
+        <tr><td><%= @travel.description %></td></tr>
+        <tr><td>¥<%= converting_to_jpy(@travel.price) %></td></tr>
+      </table>
+      <%= link_to '予約に進む', new_customers_travel_booking_path(@travel.id) %>
     </div>
   </div>
 </div>

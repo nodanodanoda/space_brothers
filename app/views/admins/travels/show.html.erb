@@ -1,57 +1,47 @@
 <div class="container">
-  <div class="main">
-    <div class="row">
-			<h1>旅行詳細</h1>
-			<div class="contents">
-					<div class="admin_picture">
-						<%= attachment_image_tag @travel, :picture, size: "200x200" %>
-					</div>
+  <div class="row">
+		<h1>旅行詳細</h1>
+		<div class="contents">
+				<div class="admin_picture">
+					<%= attachment_image_tag @travel, :picture, size: "200x200" %>
+				</div>
+				<div class="tag">
 					<% @travel.tags.each do |tag| %>
-			            <span class="label label-primary"><%= tag.tag_name %></span>
-			        <% end %>
-
-					<div class="explain">
-						<div class="explain_content">
-							<div class="admin_label"><p>旅行名</p></div>
-							<div class="explain_text">
-								<%= @travel.name %>
-							</div>
-						</div>
-						<div class="explain_content">
-							<div class="admin_label"><p>日数</p></div>
-							<div class="explain_text">
-								<%= @travel.days %>日
-							</div>
-						</div>
-						<div class="explain_content">
-							<div class="admin_label"><p>旅行説明</p></div>
-							<div class="explain_text">
-								<%= @travel.description %>
-							</div>
-						</div>
-						<div class="explain_content">
-							<div class="admin_label"><p>ジャンル</p></div>
-							<div class="explain_text">
-								<%= @travel.travel_genre.genre %>
-							</div>
-						</div>
-						<div class="explain_content">
-							<div class="admin_label"><p>値段</p></div>
-							<div class="explain_text">
-								<%= converting_to_jpy(@travel.price) %>
-							</div>
-						</div>
-						<div class="explain_content">
-							<div class="admin_label"><p>旅行ステータス</p></div>
-							<div class="explain_text">
-								<%= @travel.sales_status_i18n %>
-							</div>
-						</div>
-						<div class="btn btn-primary active">
-							<%= link_to "編集する", edit_admins_travel_path(@travel.id) %>
-						</div>
+			      <span class="label label-primary"><%= tag.tag_name %></span>
+			    <% end %>
 			  </div>
-			</div>
+		    <div class="col-md-6">
+					<table class="table">
+						<tr>
+							<th>旅行名</th>
+							<td><%= @travel.name %></td>
+						</tr>
+						<tr>
+							<th>日数</th>
+							<td><%= @travel.days %>日</td>
+						</tr>
+						<tr>
+							<th>旅行説明</th>
+							<td><%= @travel.description %></td>
+						</tr>
+						<tr>
+							<th>ジャンル</th>
+							<td><%= @travel.travel_genre.genre %></td>
+						</tr>
+						<tr>
+							<th>値段</th>
+							<td><%= converting_to_jpy(@travel.price) %></td>
+						</tr>
+						<tr>
+							<th>旅行ステータス</th>
+							<td><%= @travel.sales_status_i18n %></td>
+						</tr>
+					</table>
+					<div class="btn btn-primary active">
+						<%= link_to "編集する", edit_admins_travel_path(@travel.id) %>
+					</div>
+				</div>			
+		  </div>
 		</div>
 	</div>
 </div>
