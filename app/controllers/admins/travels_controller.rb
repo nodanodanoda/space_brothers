@@ -32,6 +32,7 @@ class Admins::TravelsController < ApplicationController
   def update
   	@travel = Travel.find(params[:id])
   	if @travel.update(travel_params)
+       @travel.tags.destroy_all
          tags = Vision.get_image_data(@travel.picture)
          tags.each do |tag|
            @travel.tags.create(tag_name: tag)
